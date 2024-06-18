@@ -22,10 +22,19 @@ export const ButtonStyle = css`
         color: #fff;
         border: 1px solid #fff;
     `}
-    ${props => props.primary && css`
+    ${props => props.primary && !props.outline && css`
         background-color: #5542F6;
         color: #fff;
         border: 1px solid #5542F6;
+    `}
+    ${props => props.primary && props.outline && css`
+        background-color: transparent;
+        color: #5542F6;
+        border: 1px solid #5542F6;
+        &:hover {
+            background-color: #5542F6;
+            color: white;
+        }
     `}
     ${props => props.size === 'l' && css`
         font-size:1.2rem;
