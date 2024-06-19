@@ -13,6 +13,10 @@ export const ButtonStyle = css`
         height: 16px;
         margin-right: 5px;
     }
+    ${props => props.block && css`
+        display:block;
+        width: 100%;
+    `}
     ${props => props.white && !props.outline && css`
         background-color: #fff;
         color: #000;
@@ -42,6 +46,11 @@ export const ButtonStyle = css`
         svg{
             height: 20px;
         }
+    `}
+    ${props => props.cart && css`
+        background-color: #eee;
+        color: black;
+        font-type: bold;
     `}
 `;
 
