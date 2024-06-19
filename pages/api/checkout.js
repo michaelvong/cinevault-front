@@ -44,7 +44,7 @@ export default async function handler(req, res){
         line_items,
         mode: 'payment',
         customer_email: email,
-        success_url: process.env.PUBLIC_URL + '/cart?sucess=true',
+        success_url: process.env.PUBLIC_URL + '/cart?success=true',
         cancel_url: process.env.PUBLIC_URL + '/cart?cancel=true',
         metadata: {
             orderId: orderDoc._id.toString(),
