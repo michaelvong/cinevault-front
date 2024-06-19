@@ -84,11 +84,35 @@ export default function Cart(){
         removeProduct(id);
     };
 
+    async function goPayment(){
+        const res = await axios.post('/api/checkout', {
+            name,email,city,country,postalCode,address,
+            cartProducts,
+        });
+        if(res.data.url){
+            window.location = res.data.url;
+        }
+    }
     let total = 0;
     for (const prodId of cartProducts){
         const price = products.find(p => p._id === prodId)?.price || 0;
         total += price;
     }
+
+    if(typeof window !== "undefined" && window.location.href.includes('success')){
+        return (
+            <>
+                <Header/>
+                <Center>
+                    <Box>
+                        <h1>Thanks for your order!</h1>
+                        <p>Details will be emailed</p>
+                    </Box>
+                </Center>
+            </>
+        )
+    };
+
     return(
         <>
             <Header/>
@@ -152,7 +176,7 @@ export default function Cart(){
                             <h2>
                                 Order Information
                             </h2>
-                            <form method="post" action="/api/checkout">
+                            
                                 <Input type="text" placeholder="Name" value={name} name="name" onChange={ev => setName(ev.target.value)}/>
                                 <Input type="text" placeholder="Email" value={email} name="email" onChange={ev => setEmail(ev.target.value)}/>
                                 <Input type="text" placeholder="Street Address" value={address} name="address" onChange={ev => setAddress(ev.target.value)}/>
@@ -161,10 +185,9 @@ export default function Cart(){
                                     <Input type="text" placeholder="Postal Code" value={postalCode} name="postalCode" onChange={ev => setPostalCode(ev.target.value)}/>
                                 </CityHolder>                 
                                 <Input type="text" placeholder="Country" value={country} name="country" onChange={ev => setCountry(ev.target.value)}/>
-                                <PrimaryBtn type="submit" black primary block>
+                                <PrimaryBtn onClick={goPayment} black primary block>
                                     Continue to pay
                                 </PrimaryBtn>
-                            </form>
                         </Box> 
                     )}
                     
