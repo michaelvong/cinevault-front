@@ -9,6 +9,9 @@ export function CartContextProvider({children}){
         if(cartProducts?.length > 0){
             ls?.setItem('cart', JSON.stringify(cartProducts));
         }
+        if(cartProducts?.length === 0){
+            ls?.setItem('cart', '');
+        }
     }, [cartProducts]);
 
     //grabs products from established cart if there exists
