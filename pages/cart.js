@@ -59,7 +59,7 @@ const CityHolder = styled.div`
 `;
 
 export default function Cart(){
-    const {cartProducts, addProduct, removeProduct} = useContext(CartContext);
+    const {cartProducts, addProduct, removeProduct, clearCart} = useContext(CartContext);
     const [products, setProducts] = useState([]);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -67,6 +67,7 @@ export default function Cart(){
     const [postalCode, setPostalCode] = useState('');
     const [address, setAddress] = useState('');
     const [country, setCountry] = useState('');
+    const [success, setSuccess] = useState(false);
 
     useEffect(() => {
         if(cartProducts.length > 0){
@@ -75,6 +76,17 @@ export default function Cart(){
             })
         }
     }, [cartProducts]);
+
+    useEffect(() => {
+        if(typeof window.location.href === 'undefined'){
+            return;
+        }
+        
+        if(window.location.href.includes('success')){
+            clearCart();
+            setSuccess(true);
+        };
+    }, []);
 
     function incrementProd(id){
         addProduct(id);
@@ -99,14 +111,13 @@ export default function Cart(){
         total += price;
     }
 
-    if(typeof window !== "undefined" && window.location.href.includes('success')){
+    if(success){
         return (
             <>
                 <Header/>
                 <Center>
                     <Box>
                         <h1>Thanks for your order!</h1>
-                        <p>Details will be emailed</p>
                     </Box>
                 </Center>
             </>
