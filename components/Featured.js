@@ -44,6 +44,11 @@ const Column = styled.div`
     align-items: center;
 `;
 
+const ImageHolder = styled.div`
+    img {
+        height: 350px;
+    }
+`;
 export default function Featured({product}){
     const {addProduct} = useContext(CartContext);
     function addProductToCart(){
@@ -55,6 +60,9 @@ export default function Featured({product}){
                 <ColumnsWrapper>
                     <Column>
                         <div>
+                            <ImageHolder>
+                                <img src={product.image}/>
+                            </ImageHolder>
                             <Title>
                                 {product.title}
                             </Title>
@@ -62,7 +70,7 @@ export default function Featured({product}){
                                 {product.description}
                             </Desc>
                             <ButtonsWrapper>
-                                <ButtonLink href={'/products/'+product._id} outline={1} white={1}>
+                                <ButtonLink href={'/product/'+product._id} outline={1} white={1}>
                                     Read More
                                 </ButtonLink>
                                 <PrimaryBtn primary onClick={addProductToCart}>

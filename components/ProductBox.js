@@ -5,27 +5,29 @@ import Link from "next/link";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 const ProductWrapper = styled.div`
+    width: 25ch;
 `;
 
 const WhiteBox = styled(Link)`
-    background-color: #fff;
+    background-color: #D6D6D6;
     padding: 20px;
-    height: 120px;
+    height: 200px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     img{
-        max-width: 100%;
-        max-height: 80px;
+
+        width: 160px;
+        height: 200px;
     }
 
 `;
 
 const Title = styled(Link)`
     font-weight: normal;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 0;
     color: inherit;
     text-decoration: none;
@@ -33,7 +35,7 @@ const Title = styled(Link)`
 
 const ProductInfoBox = styled.div`
     margin-top: 5px;
-    width: 20ch;
+    width: 100%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -52,7 +54,7 @@ const Price = styled.div`
 `;
 
 export default function ProductBux({_id, title, description, price, image}) {
-    const url = '/products/' + _id;
+    const url = '/product/' + _id;
     const {addProduct} = useContext(CartContext);
     return (
         <ProductWrapper>
