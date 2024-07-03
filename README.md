@@ -1,40 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+﻿# CineVault
 
-## Getting Started
+Description: <br/>
+   CineVault is a Full Stack e-commerce web application created for users to browse and purchase moveis. 
+   This repo holds the code for the front end page for the e-commerce store. This application allows the user 
+   to interact with the store and add movies to their cart. Users can purchase the movie with the integrated Stripe
+   payments. 
+ 
+To Run: <br/>
+'npm run dev' to start
 
-First, run the development server:
+Technologies: <br/>
+NextJS, MongoDB, Styled-Components <br/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Examples: <br/>
+Front page right when user opens the site. A featured movie is displayed with new arrivals below. <br/>
+![cinevault1](https://github.com/michaelvong/cinevault-front/assets/72327548/efd6462e-af4b-420d-b64f-53d028bdc997)<br/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The all products page where users can see all the movies that we currently have in the database. <br/>
+![cinevault2](https://github.com/michaelvong/cinevault-front/assets/72327548/2da1a184-a764-4105-b82a-e13f55b4a4c2)<br/>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Cart page that displays cart contents and details. <br/>
+![cinevault3](https://github.com/michaelvong/cinevault-front/assets/72327548/fd50a333-db14-4cdf-a8f8-804aec552d31) <br/>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Payment page from Stripe.
+![cinevault4](https://github.com/michaelvong/cinevault-front/assets/72327548/0f16e5f3-2a2a-401f-af67-0fde5690d7dc) <br/>
